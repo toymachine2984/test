@@ -21,6 +21,12 @@ public class Test1 {
         Assert.assertEquals(var, task.sumNumber("65423414235364756856", "43254364565474567"));
     }
 
+    @Test
+    public void sumNumber34() {
+        String var = "234";
+        Assert.assertEquals(var, task.sumNumber("111", "123"));
+    }
+
 
     @Test
     public void sumNumber2() {

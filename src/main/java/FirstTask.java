@@ -12,22 +12,22 @@ public class FirstTask {
 
 
     public void readLine() throws IOException {
+        try (BufferedReader reader = new BufferedReader(new InputStreamReader(System.in))) {
+            System.out.println("Enter 1st number ");
+            String input;
+            String input2;
+            do {
+                input = reader.readLine();
+            }
+            while (!isDigit(input));
 
-        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-        System.out.println("Enter 1st number ");
-        String input;
-        String input2;
-        do {
-            input = reader.readLine();
+            System.out.println("Enter 2d number ");
+            do {
+                input2 = reader.readLine();
+            }
+            while (!isDigit(input2));
+            System.out.println(sumNumber(input, input2));
         }
-        while (!isDigit(input));
-
-        System.out.println("Enter 2d number ");
-        do {
-            input2 = reader.readLine();
-        }
-        while (!isDigit(input2));
-        System.out.println(sumNumber(input, input2));
     }
 
 
@@ -57,8 +57,8 @@ public class FirstTask {
         StringBuilder builder = new StringBuilder();
         int local = 0;
         for (int i = input2Builder.length(); i > 0; i--) {
-            int i1 = Character.getNumericValue(input1Builder.charAt(i-1));
-            int i2 = Character.getNumericValue(input2Builder.charAt(i-1));
+            int i1 = Character.getNumericValue(input1Builder.charAt(i - 1));
+            int i2 = Character.getNumericValue(input2Builder.charAt(i - 1));
             int i3 = (i1 + i2 + local);
             if (i3 > 9) {
                 local = 1;
@@ -68,8 +68,8 @@ public class FirstTask {
                 builder.insert(0, i3 % 10);
             }
         }
-        if(local == 1){
-            builder.insert(0,1);
+        if (local == 1) {
+            builder.insert(0, 1);
         }
         return builder.toString();
     }
