@@ -4,7 +4,9 @@ import java.io.InputStreamReader;
 
 public class SecondTask {
 
-    public static void main(String[] args) throws  IOException {
+    private static int value;
+
+    public static void main(String[] args) throws IOException {
 
         SecondTask task = new SecondTask();
         int i = task.readLine();
@@ -16,16 +18,26 @@ public class SecondTask {
     public int readLine() throws IOException {
 
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-        System.out.println("Enter number ");
-        String input = reader.readLine();
         try {
-            return Integer.valueOf(input);
+            System.out.println("Enter number ");
+            String input = reader.readLine();
+            value = Integer.valueOf(input);
         } catch (NumberFormatException ex) {
+            System.out.println("Not a number \r\ntry again");
             readLine();
         } finally {
             reader.close();
         }
-        return 0;
+        return value;
+    }
+
+    public int run(int i) {
+
+        System.out.println("your number : " + i);
+        int sum = 0;
+        sum = generate(i, sum);
+        System.out.println(sum);
+        return sum;
     }
 
 
